@@ -4,9 +4,11 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
+import "react-toastify/dist/ReactToastify.css";
 import App from "./App";
 import { ProductProvider } from "./context/productContext";
 import { BasketProvider } from "./context/basketContext";
+import { ToastContainer } from "react-toastify";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -15,5 +17,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <App />
       </ProductProvider>
     </BasketProvider>
+    <ToastContainer autoClose={1500} />
   </React.StrictMode>
 );

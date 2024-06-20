@@ -3,11 +3,14 @@ import { FaShopify } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import api from "../utils/api";
 import { ProductContext } from "../context/productContext";
+import { BasketContext } from "../context/basketContext";
 
 const Header = () => {
   const [categories, setCategories] = useState();
 
   const { setSelectedCategory } = useContext(ProductContext);
+
+  const { basket, totalAmount } = useContext(BasketContext);
 
   useEffect(() => {
     // kategorilerin verilerini al
@@ -46,6 +49,7 @@ const Header = () => {
             <li className="nav-item">
               <NavLink className="nav-link" aria-current="page" to={"/sepet"}>
                 Sepet
+                <span className="badge bg-danger ms-1">{totalAmount}</span>
               </NavLink>
             </li>
             <li className="nav-item dropdown">
