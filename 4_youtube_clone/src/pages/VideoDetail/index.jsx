@@ -18,9 +18,9 @@ const VideoDetail = () => {
 
   useEffect(() => {
     //* 3.adım: idsini bildiğimiz videonun detayını al
-    api.get(`/video/info?id=${id}&extend=1`).then((res) => setVideo(res.data));
+    api.get(`/video/info?id=${id}&extend=1`).then((res) => setVideo(res?.data));
     //* 4.adım: idsini bildiğimiz videonun yorumlarını al
-    api.get(`/comments?id=${id}`).then((res) => setComments(res.data));
+    api.get(`/comments?id=${id}`).then((res) => setComments(res?.data));
   }, []);
 
   return (

@@ -25,7 +25,7 @@ const VideoInfo = ({ video }) => {
       </div>
 
       <p>
-        {text.split("\n").map((line, i) => (
+        {text?.split("\n").map((line, i) => (
           <span key={i}>
             {line} <br />
           </span>
