@@ -1,12 +1,15 @@
 import { v4 } from "uuid";
 import api from "../utils/api";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addTodo } from "../store/actions/todoAction";
 import { toast } from "react-toastify";
 
 const AddForm = () => {
   //* Bu bileşen içerisinde dispathc methodunu kullanmamızı sağlar.
   const dispatch = useDispatch();
+
+  const state = useSelector((store) => store);
+  console.log(state);
 
   //* Form gönderildiğinde çalışır
   const handleSubmit = (e) => {
