@@ -6,5 +6,8 @@ const ActionTypes = {
   REST_SUCCESS: "REST_SUCCESS",
   REST_ERROR: "REST_ERROR",
   ADD_TO_CART: "ADD_TO_CART",
+  UPDATE_CART: "UPDATE_CART",
+  ERROR_CART: "ERROR_CART",
+  DELETE_FROM_CART: "DELETE_FROM_CART",
 };
 export default ActionTypes;

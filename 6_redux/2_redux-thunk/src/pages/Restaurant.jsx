@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 import RestaurantDetail from "../components/RestaurantDetail";
 import ProductCard from "../components/ProductCard";
 import Error from "../components/Error";
-import { addToBasket } from "../redux/actions/basketAction";
+import { addToBasket, updateItem } from "../redux/actions/basketAction";
 
 const Restaurant = () => {
   const { id } = useParams();
@@ -25,8 +25,10 @@ const Restaurant = () => {
     dispatch(getProducts(id));
   }, []);
 
-  const handleAdd = (item) => {
-    dispatch(addToBasket(item, restaurants));
+  const handleAdd = (item, found) => {
+    found
+      ? dispatch(updateItem(found.id, found.amount + 1))
+      : dispatch(addToBasket(item, restaurants));
   };
 
   return (
@@ -59,7 +61,7 @@ const Restaurant = () => {
           {productState.isLoading ? (
             <Loader />
           ) : productState.error ? (
-            <Error />
+            <Error message={error} />
           ) : (
             productState.products.map((item) => (
               <ProductCard item={item} key={item.id} handleAdd={handleAdd} />

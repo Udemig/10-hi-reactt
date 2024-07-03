@@ -23,3 +23,30 @@ export const addToBasket = (product, rest) => (dispatch) => {
     })
   );
 };
+//* Sepetteki elemanı günceller (miktar arttırma/azaltma)
+export const updateItem = (id, newAmount) => (dispatch) => {
+  //* 1.adım:API'de bulunan elemanı güncelle
+  api
+    .patch(`/cart/${id}`, { amount: newAmount })
+    .then((res) => {
+      console.log(res);
+      //* 2.adım:İstek başarılı olursa reducer'a haber ver.
+      dispatch({
+        type: ActionTypes.UPDATE_CART,
+        payload: res.data, //* güncellenecek item
+      });
+    })
+    .catch((err) =>
+      //* 3.adım:İşlem gerçekleşmezse err içerisindeki mesajı reducer'a gönder
+      dispatch({ type: ActionTypes.ERROR_CART, payload: err.message })
+    );
+};
+
+export const deleteItem = (id) => (dispatch) => {
+  api.delete(`/cart/${id}`).then(() =>
+    dispatch({
+      type: ActionTypes.DELETE_FROM_CART,
+      payload: id,
+    })
+  );
+};

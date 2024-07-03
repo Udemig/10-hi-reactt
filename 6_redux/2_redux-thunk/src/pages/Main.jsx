@@ -28,7 +28,7 @@ const Main = () => {
         {isLoading ? (
           <Loader />
         ) : error ? (
-          <Error />
+          <Error message={error} retry={getData} />
         ) : (
           restaurants.length > 0 &&
           restaurants.map((item) => (
