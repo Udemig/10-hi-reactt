@@ -4,9 +4,10 @@
 - redux
 - react-redux
 - axios
-- tailwind
+- tailwind (https://tailwindcss.com/docs/installation)
 - redux-thunk
 - @splidejs/react-splide
+- millify
 
 ##
 
