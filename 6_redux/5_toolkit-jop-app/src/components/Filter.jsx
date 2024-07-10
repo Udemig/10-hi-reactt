@@ -11,7 +11,18 @@ const Filter = () => {
   const [sort, setSort] = useState();
   const [status, setStatus] = useState();
   const [type, setType] = useState();
-  console.log(text);
+  const [debouncedText, setDebouncedText] = useState();
+
+  useEffect(() => {
+    if (text === undefined) return;
+    // bir sayaç başlat ve işlemi sayaç durunca yap
+    const timer = setTimeout(() => setDebouncedText(text), 500);
+    // eğer ki süre bitmeden tekrar useEffect çalışırsa(yeni sayaç başlaması) önceki sayacı iptal et
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [text]);
+
   useEffect(() => {
     const sortParam =
       sort === "a-z" || sort === "z-a"
@@ -45,13 +56,25 @@ const Filter = () => {
       .get("/jobs", { params })
       .then((res) => dispatch(setJobs(res.data)))
       .catch((err) => dispatch(setError(err.message)));
-  }, [text, sort, type, status]);
+  }, [debouncedText, sort, type, status]);
+  // formu sıfırla
+  const handleReset = (e) => {
+    e.preventDefault();
+    // stateleri sıfırla
+    setText();
+    setDebouncedText();
+    setSort();
+    setStatus();
+    setType();
+    // inputları sıfırla
+    e.target.reset();
+  };
 
   return (
     <div className="filter-sec">
       <h2>Filtreleme Formu</h2>
 
-      <form>
+      <form onSubmit={handleReset}>
         <div>
           <label>Ara</label>
           <input type="text" onChange={(e) => setText(e.target.value)} />

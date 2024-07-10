@@ -4,7 +4,7 @@ import Loader from "../components/Loader";
 import Error from "../components/Error";
 import Card from "../components/Card";
 
-const JobList = () => {
+const JobList = ({ retry }) => {
   const { jobs, isLoading, error } = useSelector((store) => store.jobReducer);
 
   return (
@@ -14,7 +14,7 @@ const JobList = () => {
       {isLoading ? (
         <Loader />
       ) : error ? (
-        <Error />
+        <Error message={error} retry={retry} />
       ) : (
         <div className="cards-wrapper">
           {jobs.map((i) => (
