@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import api from "../../utils/api";
+
 //* asenkron thunk aksiyonu
 export const getLanguages = createAsyncThunk(
   "languages/getLanguages",
