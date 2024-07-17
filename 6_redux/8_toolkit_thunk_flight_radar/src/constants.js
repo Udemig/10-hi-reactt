@@ -9,7 +9,17 @@ export const options = {
     limit: "300",
   },
   headers: {
-    "x-rapidapi-key": "75dc092df0msh3c03138e5cc1ea2p19035ejsn916bcc592247",
+    "x-rapidapi-key": "b782ffa092msh3d1773dc6125311p172512jsn961131e9b38c",
+    "x-rapidapi-host": "flight-radar1.p.rapidapi.com",
+  },
+};
+
+export const detailOpt = {
+  method: "GET",
+  url: "https://flight-radar1.p.rapidapi.com/flights/detail",
+  params: { flight: null },
+  headers: {
+    "x-rapidapi-key": "b782ffa092msh3d1773dc6125311p172512jsn961131e9b38c",
     "x-rapidapi-host": "flight-radar1.p.rapidapi.com",
   },
 };
