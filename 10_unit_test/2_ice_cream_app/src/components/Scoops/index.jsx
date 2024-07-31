@@ -1,5 +1,5 @@
 const Scoops = () => {
-  return <div>Scoops</div>;
+  return <div>Scoops12</div>;
 };
 
 export default Scoops;
