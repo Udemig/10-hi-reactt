@@ -52,3 +52,15 @@
 - tetiklediğimiz olaylar fireEvent gibi doğrudab tetiklenmesis yeribe gerçek bir kullanıcıyı simüle ederek belirli bir gecikmenin ardından tetiklenir
 - kullanılması için userEvent kütüphanesi kurulmalıdır
 - async çalıştığı için async await ile kullanılır
+
+# Mock
+
+- Unit testlerde "mock" kullanımı, bir fonksiyonun veya nesnenin belirli bir kısmını izole ederek test etmeye yarar. Özellikle dış bağımlılıkları olan fonksiyonları test etmek için kullanılır. Bu sayede gerçek sistem bileşenlerine bağımlı olmadan sadece test edilmek istene kodun doğru çalışıp çalışmadığı kontrol edilir.
+
+- Dışa Bapımlılıkları izole ederiz
+
+- Fonksiyonlar çağrıldı mı kontrolü ypamamızı sağlar
+
+- Fonksiyonlara gönderilen parametreleri kontrol edebilir
+
+# 100% Test Covarage
