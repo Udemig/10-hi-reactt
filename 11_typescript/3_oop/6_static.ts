@@ -21,4 +21,27 @@ Matematik.carp(30, 40);
 const math = new Matematik();
 math.topla(50, 70);
 
-// TODO STATIC DEĞİŞKENLERE BAK
+//* STATIC Özellikler
+class Ogrenci {
+  static ogrenciSayisi: number = 0;
+  public isim: string;
+
+  constructor(isim: string) {
+    this.isim = isim;
+
+    // constructor her çalıştığında yani her öğrenci oluşturulduğunda static değişkeni 1 arttır
+    Ogrenci.ogrenciSayisi++;
+  }
+}
+
+console.log(Ogrenci.ogrenciSayisi); // 0
+
+// console.log(Ogrenci.isim) // HATA VERİR
+
+const o1 = new Ogrenci("ali");
+const o2 = new Ogrenci("ayşe");
+const o3 = new Ogrenci("ayla");
+const o4 = new Ogrenci("faruk");
+o1.isim;
+
+console.log(Ogrenci.ogrenciSayisi); // 4
