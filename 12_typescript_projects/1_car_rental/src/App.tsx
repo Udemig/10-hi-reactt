@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Filter from "./components/filter";
 import Header from "./components/header";
 import Hero from "./components/hero";
@@ -9,6 +9,7 @@ import Warning from "./components/warning";
 import Card from "./components/card";
 import LoadMore from "./components/loadmore";
 import { useSearchParams } from "react-router-dom";
+import Year from "./components/filter/year";
 
 const App = () => {
   const [params, setParams] = useSearchParams();
@@ -26,13 +27,18 @@ const App = () => {
       .catch((err) => setIsError(true));
   }, [limit, params]);
 
+  const catalogueRef = useRef<HTMLDivElement>(null);
+
   return (
     <div className="min-h-screen text-white bg-[rgb(23,23,23)]">
       <Header />
 
-      <Hero />
+      <Hero catalogueRef={catalogueRef} />
 
-      <div className="mt-12 padding-x padding-y max-width">
+      <div
+        ref={catalogueRef}
+        className="mt-12 padding-x padding-y max-width"
+      >
         <div className="home__text-container">
           <h1 className="text-4xl font-extrabold">Araba Kataloğu</h1>
           <p>Beğenebileceğin arabları keşfet</p>
@@ -42,7 +48,7 @@ const App = () => {
 
           <div className="home__filter-container">
             <Filter />
-            <Filter />
+            <Year />
           </div>
         </div>
 

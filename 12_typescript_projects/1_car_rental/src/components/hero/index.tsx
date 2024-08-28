@@ -1,7 +1,18 @@
 import { motion } from "framer-motion";
 import Button from "../button";
+import { RefObject } from "react";
 
-const Hero = () => {
+type Props = {
+  // useRef ile referansı alanına bir elementin tipini tanımlarken RefObject kullanırız
+  catalogueRef: RefObject<HTMLDivElement>;
+};
+
+const Hero = ({ catalogueRef }: Props) => {
+  // katalog alanına sürekle
+  const handleClick = () => {
+    catalogueRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="hero">
       <div className="pt-36 padding-x flex-1 max-h-[920px]">
@@ -13,7 +24,11 @@ const Hero = () => {
           anını özel kılabilirsin.
         </p>
 
-        <Button title="Arabaları Keşfet" designs="mt-10" />
+        <Button
+          title="Arabaları Keşfet"
+          designs="mt-10"
+          handleClick={handleClick}
+        />
       </div>
 
       <div className="flex justify-center">
