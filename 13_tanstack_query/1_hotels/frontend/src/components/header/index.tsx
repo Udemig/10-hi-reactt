@@ -4,7 +4,7 @@ import Container from "../container";
 const Header = () => {
   return (
     <header className="border-b">
-      <Container designs=" justify-between p-5">
+      <Container designs="flex justify-between">
         <div className="flex gap-10 items-center">
           <h1 className="font-bold text-xl md:text-2xl">Tripster</h1>
 
