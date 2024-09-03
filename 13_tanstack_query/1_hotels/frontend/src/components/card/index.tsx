@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Place } from "../../types";
-import Status from "./status";
+import Status from "./Status";
 import Rating from "./Rating";
 
 type Props = {

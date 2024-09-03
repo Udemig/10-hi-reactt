@@ -67,7 +67,9 @@ exports.createRecipe = (req, res) => {
     !newRecipe.price_per_night ||
     !newRecipe.availability
   ) {
-    return res.status(400).json({ message: "Lütfen bütün değerli tanımlayın" });
+    return res
+      .status(400)
+      .json({ message: "Lütfen bütün değerli tanımlayın" });
   }
 
   //3) veriye id ekle
@@ -87,7 +89,10 @@ exports.createRecipe = (req, res) => {
   //6) cevap gönder
   res
     .status(200)
-    .json({ message: "Yeni konaklama noktası oluşturuldu", place: data });
+    .json({
+      message: "Yeni konaklama noktası oluşturuldu",
+      place: newRecipe,
+    });
 };
 
 exports.getRecipe = (req, res) => {
