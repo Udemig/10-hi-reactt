@@ -47,8 +47,8 @@ const Size = ({ selected, setSelected }: FilterProps) => {
           return (
             <p
               onClick={() => toggle(num)}
-              className={`py-2 px-4 lg:px-0 text-center rounded-md cursor-pointer transition hover:bg-zinc-400 bg-white ${
-                found ? "bg-black text-white" : "bg-white"
+              className={`py-2 px-4 lg:px-0 text-center rounded-md cursor-pointer transition hover:bg-zinc-400  ${
+                found ? "bg-black text-white" : "bg-white text-black"
               }`}
             >
               {num}
