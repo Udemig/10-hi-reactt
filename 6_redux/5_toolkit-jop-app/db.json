@@ -1,15 +1,6 @@
 {
   "jobs": [
     {
-      "position": "Marketing Manager",
-      "company": "IBM",
-      "location": "Menlo Park",
-      "status": "Reddedildi",
-      "type": "Tam Zamanlı",
-      "id": "bae91102-6657-4f0e-a84d-82828e352efe",
-      "date": 1712607012428
-    },
-    {
       "position": "Frontend Developer",
       "company": "Microsoft",
       "location": "Redmond",
