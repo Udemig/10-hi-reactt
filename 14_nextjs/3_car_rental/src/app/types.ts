@@ -11,3 +11,14 @@ export type Car = {
   condition: "Used" | "New";
   imageUrl: string;
 };
+
+export type Order = {
+  _id: string;
+  product: Car;
+  money_spend: number;
+  currency: string;
+  type: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};

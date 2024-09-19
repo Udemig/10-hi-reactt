@@ -1,6 +1,13 @@
 import { Car } from "@/app/types";
 import Container from "../../../components/Container";
 import Card from "@/app/components/Card";
+import { headers } from "next/headers";
+
+const host = headers().get("host");
+const protocol = headers().get("x-forwarded-proto");
+const baseUrl = `${protocol}://${host}`;
+
+console.log(baseUrl);
 
 type ReturnType = {
   message: string;
@@ -9,10 +16,11 @@ type ReturnType = {
 
 const getCars = async (): Promise<ReturnType> => {
   try {
-    const res = await fetch("http://localhost:3001/api/vehicles");
+    const res = await fetch(`${baseUrl}/api/vehicles`);
 
     return res.json();
   } catch (err) {
+    console.log("HATA VAR🎾🎾🎾", err);
     throw new Error("Araçları alırken bir soru oluştu");
   }
 };
