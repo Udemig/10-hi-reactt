@@ -1,0 +1,28 @@
+import InfoCard from "./InfoCard";
+import icon1 from "@/assets/images/icon-1.png";
+import icon2 from "@/assets/images/icon-2.png";
+import icon3 from "@/assets/images/icon-3.png";
+import SalesGraph from "./SalesGraph";
+import { Suspense } from "react";
+import GraphLoader from "@/components/loaders/GraphLoader";
+
+const Home = () => {
+  return (
+    <div>
+      <h1 className="font-semibold text-3xl">Dashboard</h1>
+
+      <section className="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
+        <InfoCard icon={icon1} label="Toplam Kullanıcı" value={40689} />
+        <InfoCard icon={icon2} label="Toplam Sipariş" value={10293} />
+        <InfoCard icon={icon3} label="Toplam Satış" value={89000} />
+        <InfoCard icon={icon1} label="Toplam Kullanıcı" value={40689} />
+      </section>
+
+      <Suspense fallback={<GraphLoader />}>
+        <SalesGraph />
+      </Suspense>
+    </div>
+  );
+};
+
+export default Home;
