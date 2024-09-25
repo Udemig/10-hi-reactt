@@ -9,7 +9,7 @@ import Link from "next/link";
 const Products = async () => {
   return (
     <div>
-      <div className="flex justify-between">
+      <div className="flex justify-between items-center">
         <Title>Ürünler</Title>
 
         <Link

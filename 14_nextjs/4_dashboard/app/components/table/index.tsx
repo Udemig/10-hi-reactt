@@ -1,39 +1,46 @@
 import { getUsers } from "@/utils/api";
+import DeleteButton from "./DeleteButton";
+import { FaEye } from "react-icons/fa";
+import Link from "next/link";
+import TableContainer from "./TableContainer";
 
 const Table = async () => {
   const data = await getUsers();
 
   return (
-    <div>
-      <table
-        border={4}
-        className="border shadow w-full bg-white rounded-md mt-5"
-      >
-        <thead>
-          <tr className="border-b shadow">
-            <th className="py-4 px-4">#</th>
-            <th>İsim</th>
-            <th>Eposta</th>
-            <th>Ülke</th>
-            <th>Şehir</th>
-            <th>Eylem</th>
-          </tr>
-        </thead>
+    <TableContainer>
+      <thead>
+        <tr className="border-b shadow">
+          <th className="py-4">#</th>
+          <th>İsim</th>
+          <th>Eposta</th>
+          <th>Ülke</th>
+          <th>Şehir</th>
+          <th>Eylem</th>
+        </tr>
+      </thead>
 
-        <tbody>
-          {data.map((user, key) => (
-            <tr className="border-b" key={user.id}>
-              <td className="py-8 px-4">{key}</td>
-              <td>{user.name}</td>
-              <td>{user.name}</td>
-              <td>{user.name}</td>
-              <td>{user.name}</td>
-              <td>{user.name}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+      <tbody>
+        {data.map((user, key) => (
+          <tr className="border-b" key={user.id}>
+            <td className="py-8">{key}</td>
+            <td>{user.name}</td>
+            <td>{user.email}</td>
+            <td>{user.address.country}</td>
+            <td>{user.address.city}</td>
+            <td className="py-8 flex justify-center gap-2">
+              <Link
+                href={`?show=${user.id}`}
+                className="border shadow p-2 rounded-md hover:shadow-lg hover:bg-gray-200 transition"
+              >
+                <FaEye />
+              </Link>
+              <DeleteButton id={user.id} />
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </TableContainer>
   );
 };
 

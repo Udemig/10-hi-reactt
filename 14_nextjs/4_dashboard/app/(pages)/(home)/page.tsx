@@ -6,17 +6,43 @@ import SalesGraph from "./SalesGraph";
 import { Suspense } from "react";
 import GraphLoader from "@/components/loaders/GraphLoader";
 import Title from "@/components/title";
+import { getValues } from "@/utils/api";
 
-const Home = () => {
+const Home = async () => {
+  const data = await getValues();
+
+  // ekrana basılcak olan kart bileşenlerine gödnerilecek olan propları hazırla
+  const cards = [
+    {
+      icon: icon1,
+      label: "Toplam Kullanıcı",
+      value: data.totalUser,
+    },
+    {
+      icon: icon2,
+      label: "Toplam Sipariş",
+      value: data.totalOrder,
+    },
+    {
+      icon: icon3,
+      label: "Toplam Satış",
+      value: data.totalIncome,
+    },
+    {
+      icon: icon2,
+      label: "Ürün Sayısı",
+      value: data.productsCount,
+    },
+  ];
+
   return (
     <div>
       <Title>Dashboard</Title>
 
       <section className="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
-        <InfoCard icon={icon1} label="Toplam Kullanıcı" value={40689} />
-        <InfoCard icon={icon2} label="Toplam Sipariş" value={10293} />
-        <InfoCard icon={icon3} label="Toplam Satış" value={89000} />
-        <InfoCard icon={icon1} label="Toplam Kullanıcı" value={40689} />
+        {cards.map((i) => (
+          <InfoCard icon={i.icon} label={i.label} value={i.value} />
+        ))}
       </section>
 
       <Suspense fallback={<GraphLoader />}>
