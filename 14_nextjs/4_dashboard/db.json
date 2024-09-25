@@ -1,11 +1,11 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Apple iPhone 14",
+      "id": "1",
+      "name": "Apple iPhone 13",
       "category": "Electronics",
-      "price": 1299.99,
-      "stock": 25,
+      "price": "1299.99",
+      "stock": "25",
       "description": "6.1-inch display, A15 Bionic chip, dual 12MP camera system.",
       "image_url": "https://picsum.photos/seed/1/500/500",
       "rating": 4.8,
@@ -13,7 +13,7 @@
       "brand": "Apple"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Samsung Galaxy S23",
       "category": "Electronics",
       "price": 999.99,
@@ -25,7 +25,7 @@
       "brand": "Samsung"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Sony WH-1000XM5 Headphones",
       "category": "Accessories",
       "price": 349.99,
@@ -37,7 +37,7 @@
       "brand": "Sony"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Nike Air Max 270",
       "category": "Shoes",
       "price": 149.99,
@@ -49,10 +49,10 @@
       "brand": "Nike"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Adidas Ultraboost 22",
       "category": "Shoes",
-      "price": 180.0,
+      "price": 180,
       "stock": 35,
       "description": "Primeknit upper with Boost midsole for maximum energy return.",
       "image_url": "https://picsum.photos/seed/5/500/500",
@@ -61,7 +61,7 @@
       "brand": "Adidas"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Dyson V11 Vacuum Cleaner",
       "category": "Home Appliances",
       "price": 599.99,
@@ -73,22 +73,33 @@
       "brand": "Dyson"
     },
     {
-      "id": 7,
-      "name": "LG 65-Inch 4K Smart TV",
+      "id": "7",
+      "name": "LG 65-Inch 8K Smart TV",
       "category": "Electronics",
-      "price": 899.99,
-      "stock": 20,
+      "price": "999.99",
+      "stock": "20",
       "description": "65-inch OLED display, webOS, Dolby Atmos sound.",
       "image_url": "https://picsum.photos/seed/7/500/500",
       "rating": 4.7,
       "reviews_count": 75,
       "brand": "LG"
+    },
+    {
+      "id": "2929",
+      "name": "Macbook",
+      "brand": "Apple",
+      "category": "Teknoloji",
+      "price": "500.000",
+      "stock": "23",
+      "description": "Apple m1 çipli 16gb ram vs.",
+      "image_url": "https://picsum.photos/seed/86/500/500",
+      "rating": 0,
+      "reviews_count": 0
     }
   ],
-
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Ahmet Yılmaz",
       "email": "ahmet.yilmaz@example.com",
       "password": "hashed_password_1",
@@ -117,7 +128,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Elif Kaya",
       "email": "elif.kaya@example.com",
       "password": "hashed_password_2",
@@ -139,7 +150,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Mehmet Demir",
       "email": "mehmet.demir@example.com",
       "password": "hashed_password_3",
@@ -153,7 +164,7 @@
       "orders": []
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Ayşe Çelik",
       "email": "ayse.celik@example.com",
       "password": "hashed_password_4",
@@ -169,13 +180,12 @@
           "order_id": 1004,
           "product_id": 5,
           "quantity": 1,
-          "total_price": 180.0,
+          "total_price": 180,
           "order_date": "2024-09-01"
         }
       ]
     }
   ],
-
   "orders": [
     {
       "order_id": 1001,
@@ -245,7 +255,7 @@
       "user_id": 4,
       "order_date": "2024-10-01",
       "status": "Delivered",
-      "total_price": 180.0,
+      "total_price": 180,
       "shipping_address": {
         "street": "Kordonboyu Mah. Sahil Yolu Cad. No: 22",
         "city": "Antalya",
@@ -257,7 +267,7 @@
           "product_id": 5,
           "name": "Adidas Ultraboost 22",
           "quantity": 1,
-          "price": 180.0
+          "price": 180
         }
       ]
     }

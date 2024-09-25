@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        nunito: ["var(--font-nunito)"],
+      },
+
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
